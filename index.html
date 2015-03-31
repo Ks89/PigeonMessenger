@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>PigeonMessenger by Ks89</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PigeonMessenger</h1>
+      <h2 class="project-tagline">A Wi-Fi Direct Chat for a huge amount of users</h2>
+      <a href="https://github.com/Ks89/PigeonMessenger" class="btn">View on GitHub</a>
+      <a href="https://github.com/Ks89/PigeonMessenger/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/Ks89/PigeonMessenger/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="pigeon-messenger" class="anchor" href="#pigeon-messenger" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pigeon Messenger</h1>
+
+<p><img src="http://www.stefanocappa.it/publicfiles/Github_repositories_images/Pigeon_Messenger/pigeon_messenger_header_github.png" alt="alt tag"></p>
+
+<h2>
+<a id="informations" class="anchor" href="#informations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Informations</h2>
+
+<p>Wi-Fi Direct MultiChat (aka Pigeon Messenger)  is a demo Android's application that try to overcome some Wi-Fi Direct's limitations.
+At the moment, the wifi diver of commercial devices doesn't allow a device to partecipate concurrently in two Wi-Fi Direct's groups.
+This app tries to overcome this limitation, indeed, a user can communicate with a large number of nearby people without an internet connection, using point-to-point communications.
+The main goal is the simultaneous management of multiple chats, queuing messages sent when the connection is not available and send them at the same time as soon as possible.</p>
+
+<p>Pigeon Messenger requires Android 4.4 KitKat (API 19) or higher. This choice is related to to the fact that in previous versions, this protocol was unstable and unreliable.</p>
+
+<p>It's important to remember that this is a demo application, so features like the management of screen's rotation, standby device, wifi not available and so on, are not managed as a commercial product.</p>
+
+<h2>
+<a id="results" class="anchor" href="#results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h2>
+
+<p>Pigeon Messenger works with good performances.<br>
+The main problems are the "Discovery Phase" of this protocol and the Wi-Fi Direct's implementation in Android, in fact:<br>
+1. The discovery time is too high when the number of devices increases <br>
+2. After a certain time, a device is no longer discoverable from others, so you need to restart the Discovery Phase on all devices <br>
+3. Sometimes, especially in KitKat, the WiFi part of Android crashes and the only way to solve this annoying problem is a complete reboot of the device (this situation is recognizable when Android can't find other network in Wi-Fi Setting's app).</p>
+
+<p>This shows that it's possible to extend the Wi-Fi Direct protocol in Android in some particular and limited scenarios, for example a chat.</p>
+
+<h2>
+<a id="news" class="anchor" href="#news" aria-hidden="true"><span class="octicon octicon-link"></span></a>News</h2>
+
+<ul>
+<li>
+<em>03/13/2015</em> - <strong>Pigeon Messenger</strong> Alpha 2 (updated to Android 5.1 with the new support libraries)</li>
+<li>
+<em>03/02/2015</em> - <strong>Pigeon Messenger</strong> Alpha 1 public release</li>
+</ul>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
+
+<p>You can:
+1. <strong>change the device name</strong> with Java Reflection
+2. show a list of nearby devices
+3. manage connection and disconnection between devices
+4. show the ip address of a device, also if it's a client (not available in Android's official API)
+5. block incoming messages with blacklisted words (not enabled by default)
+6. block incoming messages if too short or empty (enabled by default)
+7. create a chat between a GO and a client
+8. manage an infinite number of chats
+9. sending messages in a chat, previously stopped, if the associated device is discoverable
+10. enqueue messages if the device is not discoverable, and send all of them at the next attempt to reconnect
+11. use <em>"Eternal Discovery"</em>, a way to restart the discovery phase every time that there are errors or disconnections</p>
+
+<h2>
+<a id="future-extensions" class="anchor" href="#future-extensions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Future extensions</h2>
+
+<ul>
+<li>[ ] Connect more clients at the same GO without limitations</li>
+<li>[ ] Group chats where the GO receives messages from a client and it sends these messages to all other clients in broadcast</li>
+<li>[ ] Private chats between clients, i.e. a client uses his GO like a server to send private messages to another client, because in Wi-Fi Direct the communication between clients in a group is impossible. In this case is necessary to provide security mechanisms, like encryption, because a GO should never read private messages between its clients.</li>
+<li>[ ] and so on... ;)</li>
+</ul>
+
+<h2>
+<a id="images" class="anchor" href="#images" aria-hidden="true"><span class="octicon octicon-link"></span></a>Images</h2>
+
+<p><br>
+<img src="http://www.stefanocappa.it/publicfiles/Github_repositories_images/Pigeon_Messenger/tre_immagini.png" alt="alt tag">
+<br></p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a id="general-usage" class="anchor" href="#general-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>General usage</h3>
+
+<ol>
+<li>Activate Wi-Fi on all devices</li>
+<li>Open this app on all devices</li>
+<li>Touch the "cardview" under the words "This Device" to choose the device name</li>
+<li>Wait until devices are discovered</li>
+<li>Connect your device to another one touching an element in the list under the words "Other Devices"</li>
+<li>Chat with this device</li>
+</ol>
+
+<h3>
+<a id="reconnection-usage" class="anchor" href="#reconnection-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reconnection usage</h3>
+
+<ol>
+<li>Activate Wi-Fi on all devices</li>
+<li>Open this app on all devices</li>
+<li>Touch the "cardview" under the words "This Device" to choose the device name</li>
+<li>Wait until devices are discovered</li>
+<li>Connect your device to another one touching an element in the list under the words "Other Devices"</li>
+<li>Chat with this device</li>
+<li>Disconnect one device clicking on the second icon in the toolbar</li>
+<li>Wait some seconds, because the "Eternal Discovery" requires some seconds to re-discover this device</li>
+<li>Write a message in the chat and wait the automatic reconnection. Alternatively connect manually to the device to continue the chat.</li>
+</ol>
+
+<h3>
+<a id="queuing-messages-usage" class="anchor" href="#queuing-messages-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Queuing messages usage</h3>
+
+<ol>
+<li>Activate Wi-Fi on all devices</li>
+<li>Open this app on all devices</li>
+<li>Touch the "cardview" under the words "This Device" to choose the device name</li>
+<li>Wait until devices are discovered</li>
+<li>Connect your device to another one touching an element in the list under the words "Other Devices"</li>
+<li>Chat with this device</li>
+<li>Disconnect one device clicking on the second icon in the toolbar</li>
+<li>Disable the Discovery Phase that was automatically restarted by "Eternal Discovery", so  the list under "Other Devices" will be empty</li>
+<li>Write some messages in the chat. As you can see the connection is not possible, but don't despair, because this app is able to enqueue your messages</li>
+<li>Restart the Discovery Phase e reconnect to the device in one of the methods described above ("Reconnection usage", step 7) </li>
+<li>All messages in the queue will be automatically sent to destination in only one message </li>
+</ol>
+
+<h2>
+<a id="important-things" class="anchor" href="#important-things" aria-hidden="true"><span class="octicon octicon-link"></span></a>Important things</h2>
+
+<h3>
+<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration</h3>
+
+<p>If you want to configure this app as you prefer, pay attention to: <code>Configuration.java</code>.</p>
+
+<p>If you want to release this application without debug messages inside chats, change this constant to "false" :</p>
+
+<div class="highlight highlight-java"><pre>    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-k">boolean</span> <span class="pl-c1">DEBUG_VERSION</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>;</pre></div>
+
+<p>If you want to change client's and GO's ports, change this:</p>
+
+<div class="highlight highlight-java"><pre>    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-k">int</span> <span class="pl-c1">GROUPOWNER_PORT</span> <span class="pl-k">=</span> <span class="pl-c1">4545</span>;
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-k">int</span> <span class="pl-c1">CLIENT_PORT</span> <span class="pl-k">=</span> <span class="pl-c1">5000</span>;</pre></div>
+
+<p>If you want to change the maximum number of devices that a GO can manage for the chat, change this:</p>
+
+<div class="highlight highlight-java"><pre>    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-k">int</span> <span class="pl-c1">THREAD_COUNT</span> <span class="pl-k">=</span> <span class="pl-c1">20</span>;</pre></div>
+
+<p>This attributes are used inside this app to exchange information between devices, like a protocol, to initialize the associated chat:</p>
+
+<div class="highlight highlight-java"><pre>    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-smi">String</span> <span class="pl-c1">MAGICADDRESSKEYWORD</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>4&lt;D&lt;D&lt;R&lt;3&lt;5&lt;5<span class="pl-pds">"</span></span>;
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-smi">String</span> <span class="pl-c1">PLUSSYMBOLS</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>++++++++++++++++++++++++++<span class="pl-pds">"</span></span>;</pre></div>
+
+<p>If yuo want to change the termination String of all device's names change this attribute :</p>
+
+<div class="highlight highlight-java"><pre>    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-smi">String</span> <span class="pl-c1">SERVICE_INSTANCE</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>polimip2p<span class="pl-pds">"</span></span>;</pre></div>
+
+<p>The following attributes are used inside this app:</p>
+
+<div class="highlight highlight-java"><pre>    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-k">int</span> <span class="pl-c1">THREAD_POOL_EXECUTOR_KEEP_ALIVE_TIME</span> <span class="pl-k">=</span> <span class="pl-c1">10</span>; <span class="pl-c">//don't touch this!</span>
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-smi">String</span> <span class="pl-c1">TXTRECORD_PROP_AVAILABLE</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>available<span class="pl-pds">"</span></span>;
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-smi">String</span> <span class="pl-c1">SERVICE_REG_TYPE</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>_presence._tcp<span class="pl-pds">"</span></span>;
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-k">int</span> <span class="pl-c1">MESSAGE_READ</span> <span class="pl-k">=</span> 0x400 <span class="pl-k">+</span> <span class="pl-c1">1</span>;
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-k">int</span> <span class="pl-c1">FIRSTMESSAGEXCHANGE</span> <span class="pl-k">=</span> 0x400 <span class="pl-k">+</span> <span class="pl-c1">2</span>;
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-smi">String</span> <span class="pl-c1">MESSAGE_READ_MSG</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>MESSAGE_READ<span class="pl-pds">"</span></span>;
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-smi">String</span> <span class="pl-c1">FIRSTMESSAGEXCHANGE_MSG</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>FIRSTMESSAGEXCHANGE<span class="pl-pds">"</span></span>;</pre></div>
+
+<h3>
+<a id="message-filter" class="anchor" href="#message-filter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Message Filter</h3>
+
+<p>To change/add blacklisted words pay attention to <code>MessageFilter.java</code>.
+Every message that contains one or more of this words will be filtered on reception.</p>
+
+<p>Example: i want remove every message that contains at least one of this words: "illegal", "piracy", "crack", "Piracy".
+Add to the lowerCaseBlackList this words in this way:</p>
+
+<div class="highlight highlight-java"><pre>    <span class="pl-c">/**</span>
+<span class="pl-c">     * Private constructor, because is a singleton class.</span>
+<span class="pl-c">     */</span>
+    <span class="pl-k">private</span> MessageFilter() {
+        lowerCaseBlackList <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">ArrayList&lt;&gt;</span>();
+        <span class="pl-c">//add here all the words that you want to blacklist</span>
+        lowerCaseBlackList<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>illegal<span class="pl-pds">"</span></span>); <span class="pl-c">// OK</span>
+        lowerCaseBlackList<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>piracy<span class="pl-pds">"</span></span>); <span class="pl-c">// OK</span>
+        lowerCaseBlackList<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>crack<span class="pl-pds">"</span></span>); <span class="pl-c">// OK</span>
+
+        <span class="pl-c">//useless because ev ery words in this list are elaborated as "lower case".</span>
+        <span class="pl-c">//lowerCaseBlackList.add("Piracy"); // USELESS</span>
+    }</pre></div>
+
+<h3>
+<a id="the-useonlyprivatehere-annotation" class="anchor" href="#the-useonlyprivatehere-annotation" aria-hidden="true"><span class="octicon octicon-link"></span></a>The "@UseOnlyPrivateHere" annotation</h3>
+
+<p>I created this annotation as a custom java annotation to advise developers that some attributes must be private.
+Obviously, if you want you can make every public attribute, also with this annotation, but can be very dangerous.
+As you can see in <code>DestinationDeviceTabList</code> (attribute deviceList) and <code>ServiceList</code> (attribute serviceList) there is this annotation, because if you access or change this attributes without the custom logic that i implemented in these classes, to do secure operations, you can obtain Exceptions or other problems.
+These classes remap list's indexes, add/set object without duplicates and in a particular way, that is very necessary to this software. Every time that you want to change something here, you should create a secure method to manage these attributes.</p>
+
+<h3>
+<a id="p2pdestinationdevice-a-wifip2pdevice-abstraction" class="anchor" href="#p2pdestinationdevice-a-wifip2pdevice-abstraction" aria-hidden="true"><span class="octicon octicon-link"></span></a>P2pDestinationDevice, a WifiP2pDevice abstraction</h3>
+
+<p>In Android you can't retrieve the current IP Address in a quick and easy way, because this method is not available in Google APIs.
+Its possible to do this in two ways: the first one requires to execute a shell's command, the second one requires only java.
+I chose the second solution, because it's quicker to implement. In particular, i get the GO's IP Address inside onConnectionInfoAvailable, but to retrieve the client's IP Address i need to ask this information to the socket on GO's side when the connection has been established.
+Only GOs can retrieve Client's IP addresses, because clients can obtain only the GO's IP address.
+Therefore, it's necessary to send the client's IP address to the client itself from its GO, to be able to store them in a variable and use this information for something else, for example to show the ip in the UI or to open other sockets.</p>
+
+<h4>
+<a id="go-ip-address" class="anchor" href="#go-ip-address" aria-hidden="true"><span class="octicon octicon-link"></span></a>GO IP Address</h4>
+
+<p>In <code>MainActivity.java</code></p>
+
+<div class="highlight highlight-java"><pre>    @<span class="pl-smi">Override</span>
+    <span class="pl-k">public</span> <span class="pl-k">void</span> onConnectionInfoAvailable(<span class="pl-smi">WifiP2pInfo</span> p2pInfo) {
+    (<span class="pl-c1">...</span>)
+    <span class="pl-c">//set Group Owner ip address</span>
+    <span class="pl-smi">TabFragment</span><span class="pl-k">.</span>getWiFiP2pServicesFragment()<span class="pl-k">.</span>setLocalDeviceIpAddress(p2pInfo<span class="pl-k">.</span>groupOwnerAddress<span class="pl-k">.</span>getHostAddress());
+    (<span class="pl-c1">..</span>)
+    }</pre></div>
+
+<h4>
+<a id="client-ip-address" class="anchor" href="#client-ip-address" aria-hidden="true"><span class="octicon octicon-link"></span></a>Client IP Address</h4>
+
+<p>In <code>GroupOwnerSocketHandler.java</code>  (GO)</p>
+
+<div class="highlight highlight-java"><pre>    <span class="pl-smi">Socket</span> clientSocket <span class="pl-k">=</span> socket<span class="pl-k">.</span>accept(); <span class="pl-c">//because now i'm connected with the client/peer device</span>
+    pool<span class="pl-k">.</span>execute(<span class="pl-k">new</span> <span class="pl-smi">ChatManager</span>(clientSocket, handler));
+    ipAddress <span class="pl-k">=</span> clientSocket<span class="pl-k">.</span>getInetAddress(); <span class="pl-c">//local variable with a get method</span></pre></div>
+
+<p>In <code>MainActivity.java</code> (GO)</p>
+
+<div class="highlight highlight-java"><pre><span class="pl-k">private</span> <span class="pl-k">void</span> sendAddress(<span class="pl-smi">String</span> deviceMacAddress, <span class="pl-smi">String</span> name, <span class="pl-smi">ChatManager</span> chatManager) {
+    <span class="pl-k">if</span> (chatManager <span class="pl-k">!=</span> <span class="pl-c1">null</span>) {
+        <span class="pl-smi">InetAddress</span> ipAddress;
+        <span class="pl-k">if</span> (socketHandler <span class="pl-k">instanceof</span> <span class="pl-smi">GroupOwnerSocketHandler</span>) {
+            ipAddress <span class="pl-k">=</span> ((<span class="pl-smi">GroupOwnerSocketHandler</span>) socketHandler)<span class="pl-k">.</span>getIpAddress();
+
+            <span class="pl-smi">Log</span><span class="pl-k">.</span>d(<span class="pl-c1">TAG</span>, <span class="pl-s"><span class="pl-pds">"</span>sending message with MAGICADDRESSKEYWORD, with ipaddress= <span class="pl-pds">"</span></span> <span class="pl-k">+</span> ipAddress<span class="pl-k">.</span>getHostAddress());
+
+            chatManager<span class="pl-k">.</span>write((<span class="pl-smi">Configuration</span><span class="pl-c1"><span class="pl-k">.</span>PLUSSYMBOLS</span> <span class="pl-k">+</span> <span class="pl-smi">Configuration</span><span class="pl-c1"><span class="pl-k">.</span>MAGICADDRESSKEYWORD</span> <span class="pl-k">+</span>
+                        <span class="pl-s"><span class="pl-pds">"</span>___<span class="pl-pds">"</span></span> <span class="pl-k">+</span> deviceMacAddress <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>___<span class="pl-pds">"</span></span> <span class="pl-k">+</span> name <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>___<span class="pl-pds">"</span></span> <span class="pl-k">+</span> ipAddress<span class="pl-k">.</span>getHostAddress())<span class="pl-k">.</span>getBytes());
+        } <span class="pl-k">else</span> {
+            <span class="pl-smi">Log</span><span class="pl-k">.</span>d(<span class="pl-c1">TAG</span>, <span class="pl-s"><span class="pl-pds">"</span>sending message with MAGICADDRESSKEYWORD, without ipaddress<span class="pl-pds">"</span></span>);
+            <span class="pl-c">//i use "+" symbols as initial spacing to be sure that also if some initial character will be lost i'll have always</span>
+            <span class="pl-c">//the Configuration.MAGICADDRESSKEYWORD and i can set the associated device to the correct WifiChatFragment.</span>
+            chatManager<span class="pl-k">.</span>write((<span class="pl-smi">Configuration</span><span class="pl-c1"><span class="pl-k">.</span>PLUSSYMBOLS</span> <span class="pl-k">+</span> <span class="pl-smi">Configuration</span><span class="pl-c1"><span class="pl-k">.</span>MAGICADDRESSKEYWORD</span> <span class="pl-k">+</span>
+                        <span class="pl-s"><span class="pl-pds">"</span>___<span class="pl-pds">"</span></span> <span class="pl-k">+</span> deviceMacAddress <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>___<span class="pl-pds">"</span></span> <span class="pl-k">+</span> name)<span class="pl-k">.</span>getBytes());
+        }
+    }
+}</pre></div>
+
+<p>In <code>MainActivity.java</code> (CLIENT)</p>
+
+<div class="highlight highlight-java"><pre><span class="pl-k">if</span> (readMessage<span class="pl-k">.</span>contains(<span class="pl-smi">Configuration</span><span class="pl-c1"><span class="pl-k">.</span>MAGICADDRESSKEYWORD</span>)) {
+    <span class="pl-smi">WifiP2pDevice</span> p2pDevice <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">WifiP2pDevice</span>();
+    p2pDevice<span class="pl-k">.</span>deviceAddress <span class="pl-k">=</span> readMessage<span class="pl-k">.</span>split(<span class="pl-s"><span class="pl-pds">"</span>___<span class="pl-pds">"</span></span>)[<span class="pl-c1">1</span>];
+    p2pDevice<span class="pl-k">.</span>deviceName <span class="pl-k">=</span> readMessage<span class="pl-k">.</span>split(<span class="pl-s"><span class="pl-pds">"</span>___<span class="pl-pds">"</span></span>)[<span class="pl-c1">2</span>];
+    <span class="pl-smi">P2pDestinationDevice</span> device <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">P2pDestinationDevice</span>(p2pDevice);
+
+    <span class="pl-k">if</span> (readMessage<span class="pl-k">.</span>split(<span class="pl-s"><span class="pl-pds">"</span>___<span class="pl-pds">"</span></span>)<span class="pl-k">.</span>length <span class="pl-k">==</span> <span class="pl-c1">3</span>) {
+    <span class="pl-smi">Log</span><span class="pl-k">.</span>d(<span class="pl-c1">TAG</span>, <span class="pl-s"><span class="pl-pds">"</span>handleMessage, p2pDevice created with: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> p2pDevice<span class="pl-k">.</span>deviceName <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>, <span class="pl-pds">"</span></span> <span class="pl-k">+</span> p2pDevice<span class="pl-k">.</span>deviceAddress);
+                        manageAddressMessageReception(device);
+    } <span class="pl-k">else</span> <span class="pl-k">if</span> (readMessage<span class="pl-k">.</span>split(<span class="pl-s"><span class="pl-pds">"</span>___<span class="pl-pds">"</span></span>)<span class="pl-k">.</span>length <span class="pl-k">==</span> <span class="pl-c1">4</span>) {
+            device<span class="pl-k">.</span>setDestinationIpAddress(readMessage<span class="pl-k">.</span>split(<span class="pl-s"><span class="pl-pds">"</span>___<span class="pl-pds">"</span></span>)[<span class="pl-c1">3</span>]);
+
+            <span class="pl-c">//set client ip address</span>
+            <span class="pl-smi">TabFragment</span><span class="pl-k">.</span>getWiFiP2pServicesFragment()<span class="pl-k">.</span>setLocalDeviceIpAddress(device<span class="pl-k">.</span>getDestinationIpAddress());
+
+            <span class="pl-smi">Log</span><span class="pl-k">.</span>d(<span class="pl-c1">TAG</span>, <span class="pl-s"><span class="pl-pds">"</span>handleMessage, p2pDevice created with: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> p2pDevice<span class="pl-k">.</span>deviceName <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>, <span class="pl-pds">"</span></span>
+                                <span class="pl-k">+</span> p2pDevice<span class="pl-k">.</span>deviceAddress <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>, <span class="pl-pds">"</span></span> <span class="pl-k">+</span> device<span class="pl-k">.</span>getDestinationIpAddress());
+            manageAddressMessageReception(device);
+    }
+}</pre></div>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Copyright 2015 Politecnico di Milano</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at</p>
+
+<pre><code>http://www.apache.org/licenses/LICENSE-2.0
+</code></pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</p>
+
+<p><br>
+<strong>Created by Stefano Cappa</strong></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/Ks89/PigeonMessenger">PigeonMessenger</a> is maintained by <a href="https://github.com/Ks89">Ks89</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-61405607-3");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
+
