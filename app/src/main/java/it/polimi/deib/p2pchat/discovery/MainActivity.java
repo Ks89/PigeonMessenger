@@ -37,7 +37,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.StrictMode;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -77,7 +77,7 @@ import lombok.Setter;
  * <p></p>
  * Created by Stefano Cappa on 04/02/15.
  */
-public class MainActivity extends ActionBarActivity implements
+public class MainActivity extends AppCompatActivity implements
         WiFiP2pServicesFragment.DeviceClickListener,
         WiFiChatFragment.AutomaticReconnectionListener,
         Handler.Callback,
